@@ -1,78 +1,92 @@
 <template>
-<div class="container">
-	<div class="banner">
-		<el-carousel :interval="4000" type="card" height="200px">
-			<el-carousel-item v-for="item in 6" :key="item">
-				<h3 class="medium">{{ item }}</h3>
-			</el-carousel-item>
-		</el-carousel>
-	</div>
-	<div class="content">
-		<div class="content-left">
-			<div class="panel box">
-				panel
-			</div>
+<div style="opacity: 1;">
+	<div class="container">
+		<div class="banner">
+			<el-carousel :interval="4000" type="card" height="200px">
+				<el-carousel-item v-for="item in 6" :key="item">
+					<h3 class="medium">{{ item }}</h3>
+				</el-carousel-item>
+			</el-carousel>
 		</div>
-		<div class="content-middle">
-			<div class="timestamp-middle box" style="">
-				<div class="block" >
-					<el-timeline>
-						<el-timeline-item timestamp="2018/4/12" placement="top">
-							<el-card>
-								<h4>更新 Github 模板</h4>
-								<p>王小虎 提交于 2018/4/12 20:46</p>
-							</el-card>
-						</el-timeline-item>
-						<el-timeline-item timestamp="2018/4/3" placement="top">
-							<el-card>
-								<h4>更新 Github 模板</h4>
-								<p>王小虎 提交于 2018/4/3 20:46</p>
-							</el-card>
-						</el-timeline-item>
-						<el-timeline-item timestamp="2018/4/3" placement="top">
-							<el-card>
-								<h4>更新 Github 模板</h4>
-								<p>王小虎 提交于 2018/4/3 20:46</p>
-							</el-card>
-						</el-timeline-item>
-						<el-timeline-item timestamp="2018/4/2" placement="top">
-							<el-card>
-								<h4>更新 Github 模板</h4>
-								<p>王小虎 提交于 2018/4/2 20:46</p>
-							</el-card>
-						</el-timeline-item>
-						<el-timeline-item timestamp="2018/4/2" placement="top">
-							<el-card>
-								<h4>更新 Github 模板</h4>
-								<p>王小虎 提交于 2018/4/2 20:46</p>
-							</el-card>
-						</el-timeline-item>
-						<el-timeline-item timestamp="2018/4/2" placement="top">
-							<el-card>
-								<h4>更新 Github 模板</h4>
-								<p>王小虎 提交于 2018/4/2 20:46</p>
-							</el-card>
-						</el-timeline-item>
-					</el-timeline>
+		<div class="content">
+			<div class="content-left">
+				<div class="panel box">
+					panel
 				</div>
 			</div>
-		</div>
-		<div class="content-right">
-			<div class="userinfo box">
-				信息
+			<div class="content-middle">
+				<div class="timestamp-middle box" style="">
+					<div class="block" >
+						<el-timeline>
+							<el-timeline-item timestamp="2018/4/12" placement="top">
+								<el-card>
+									<h4>更新 Github 模板</h4>
+									<p>王小虎 提交于 2018/4/12 20:46</p>
+								</el-card>
+							</el-timeline-item>
+							<el-timeline-item timestamp="2018/4/3" placement="top">
+								<el-card>
+									<h4>更新 Github 模板</h4>
+									<p>王小虎 提交于 2018/4/3 20:46</p>
+								</el-card>
+							</el-timeline-item>
+							<el-timeline-item timestamp="2018/4/3" placement="top">
+								<el-card>
+									<h4>更新 Github 模板</h4>
+									<p>王小虎 提交于 2018/4/3 20:46</p>
+								</el-card>
+							</el-timeline-item>
+							<el-timeline-item timestamp="2018/4/2" placement="top">
+								<el-card>
+									<h4>更新 Github 模板</h4>
+									<p>王小虎 提交于 2018/4/2 20:46</p>
+								</el-card>
+							</el-timeline-item>
+							<el-timeline-item timestamp="2018/4/2" placement="top">
+								<el-card>
+									<h4>更新 Github 模板</h4>
+									<p>王小虎 提交于 2018/4/2 20:46</p>
+								</el-card>
+							</el-timeline-item>
+							<el-timeline-item timestamp="2018/4/2" placement="top">
+								<el-card>
+									<h4>更新 Github 模板</h4>
+									<p>王小虎 提交于 2018/4/2 20:46</p>
+								</el-card>
+							</el-timeline-item>
+						</el-timeline>
+					</div>
+				</div>
 			</div>
-			<div class="tag box">
-				tag
-			</div>
-			<div class="text box">
-				text
+			<div class="content-right">
+				<div class="userinfo box">
+					信息
+				</div>
+				<div class="tag box">
+					tag
+				</div>
+				<div class="text box">
+					text
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 </template>
 
+<script>
+export default {
+	
+}
+</script>
+
 <style>
+  #background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -100;
+  }
   .el-carousel__item h3 {
     color: #475669;
     font-size: 14px;
@@ -94,6 +108,10 @@
 	}
 
 	.container {
+		filter: alpha(opacity=45); 
+		opacity:0.45; 
+		
+		z-index: 1;
 		width:80%;
 		min-width: 1000px;
 		height:100%;
