@@ -150,7 +150,7 @@
 	}
 	.content .content-right .text {
 		background: #fdacf9;
-		height: 30%;
+		height: 29%;
 	}
 
 	.content .content-left .panel {
