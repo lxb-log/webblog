@@ -1,5 +1,5 @@
 <template>
-<div style="opacity: 1;">
+<!-- <div style="opacity: 0.44;"> -->
 	<div class="container">
 		<div class="banner">
 			<el-carousel :interval="4000" type="card" height="200px">
@@ -60,7 +60,7 @@
 			</div>
 			<div class="content-right">
 				<div class="userinfo box">
-					信息
+					<UserInfo></UserInfo>
 				</div>
 				<div class="tag box">
 					tag
@@ -71,12 +71,16 @@
 			</div>
 		</div>
 	</div>
-</div>
+<!-- </div> -->
 </template>
 
 <script>
+import UserInfo from "../components/UserInfo"
+
 export default {
-	
+  components: {
+	UserInfo
+  }
 }
 </script>
 
@@ -109,7 +113,7 @@ export default {
 
 	.container {
 		filter: alpha(opacity=45); 
-		opacity:0.45; 
+		opacity:0.8; 
 		
 		z-index: 1;
 		width:80%;
@@ -159,6 +163,7 @@ export default {
 	}
 
 	.content .content-right .userinfo {
+		padding: 5px;  /*  上右下左 */
 		background: #fafdfa;
 		height:30%;
 	}
@@ -190,12 +195,14 @@ export default {
 	/*滚动条里面小方块样式*/
 	.content .content-middle .timestamp-middle::-webkit-scrollbar-thumb {
 		border-radius:100px;
-		-webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2);
+		/* background-clip: text; */
+		/* -webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2); */
+		
 		background:rgb(144, 247, 149);
 	}
 	/*滚动条里面轨道样式*/
 	.content .content-middle .timestamp-middle::-webkit-scrollbar-track {
-		-webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2);
+		/* -webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2); */
 		border-radius:0;
 		background:rgba(255, 97, 97, 0.1);
 	}

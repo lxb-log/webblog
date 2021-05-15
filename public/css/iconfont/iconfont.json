@@ -1,0 +1,30 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "3506983",
+      "name": "csdn",
+      "font_class": "csdn",
+      "unicode": "e50d",
+      "unicode_decimal": 58637
+    },
+    {
+      "icon_id": "8777654",
+      "name": "social_github",
+      "font_class": "icon-test",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    },
+    {
+      "icon_id": "19570026",
+      "name": "gitee-fill-round",
+      "font_class": "gitee-fill-round",
+      "unicode": "e502",
+      "unicode_decimal": 58626
+    }
+  ]
+}
