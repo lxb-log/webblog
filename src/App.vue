@@ -21,6 +21,7 @@ export default {
 <style>
   html, body, #app{ 
     height: 100%; 
+    min-height: 800px;
     margin: 0; 
     padding: 0;
   }

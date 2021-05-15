@@ -2,25 +2,25 @@
   <div class="demo-basic--circle">
     <div class="block"><el-avatar :size="50" :src="circleUrl"></el-avatar></div>
       <div class="sub-title">circle</div>
-      <el-divider content-position="left">相信我, 你并不孤独!</el-divider>
+      <el-divider content-position="center">相信我, 你并不孤独!</el-divider>
       <div class="iconfont-ul">
         <ul>
           <li>
-            <a href="https://gitee.com/lanxiaobai/">
+            <a href="https://gitee.com/lanxiaobai/" title="Gitee">
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-gitee-fill-round"></use>
               </svg>
             </a>
           </li>
           <li>
-            <a href="https://github.com/lxb-log/webblog">
+            <a href="https://github.com/lxb-log/webblog" title="GitHub">
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-icon-test"></use>
               </svg>
             </a>
           </li>
           <li>
-            <a href="https://blog.csdn.net/lxb_wyf">
+            <a href="https://blog.csdn.net/lxb_wyf" title="CSDN">
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-csdn"></use>
               </svg>

@@ -11,7 +11,13 @@
 		<div class="content">
 			<div class="content-left">
 				<div class="panel box">
-					panel
+					<div class="button"><el-button type="primary">文章</el-button></div>
+					<div class="button"><el-button type="primary">分类</el-button></div>
+					<div class="button"><el-button type="primary" icon="el-icon-search">搜索</el-button></div>
+				</div>
+				<div class="weather box">
+					<!-- 天气 -->
+					<Weather></Weather>
 				</div>
 			</div>
 			<div class="content-middle">
@@ -63,10 +69,10 @@
 					<UserInfo></UserInfo>
 				</div>
 				<div class="tag box">
-					tag
+					<TagsCloud></TagsCloud>
 				</div>
-				<div class="text box">
-					text
+				<div class="text" >
+					
 				</div>
 			</div>
 		</div>
@@ -76,10 +82,14 @@
 
 <script>
 import UserInfo from "../components/UserInfo"
+import TagsCloud from "../components/TagsCloud"
+import Weather from "../components/Weather"
 
 export default {
   components: {
-	UserInfo
+	UserInfo,
+	TagsCloud,
+	Weather
   }
 }
 </script>
@@ -113,25 +123,29 @@ export default {
 
 	.container {
 		filter: alpha(opacity=45); 
-		opacity:0.8; 
+		/* opacity:0.8;  */
 		
 		z-index: 1;
 		width:80%;
 		min-width: 1000px;
+		max-width: 1440px;
+		min-height: 800px;
+		max-height: 1152px;
 		height:100%;
 		margin:0 auto;
 		text-align: center;
 	}
 
 	.banner {
-		padding: 20px;
+		padding: 10px;
 		box-sizing:border-box;
 	}
 
 	.container .content {
-		height:calc(100vh - 266px);
+		height:calc(100% - 266px);
 		display: flex;
 		width:100%;
+		/* height: */
 		margin:0 auto;
 		/* background: rgb(238, 13, 13); */
 	}
@@ -159,27 +173,46 @@ export default {
 	.box {
 		/* padding: 30px; */
 		width:80%;
-		margin:20px auto;
+		margin:10px auto;
 	}
 
 	.content .content-right .userinfo {
 		padding: 5px;  /*  上右下左 */
 		background: #fafdfa;
-		height:30%;
+		height:160px;
+		/* width: 200px; */
 	}
 	.content .content-right .tag {
-		background: #fdacf9;
-		height:30%;
+		height:200px;
+		/* width: 200px; */
+		background: #fdfdfd;
+		padding: 5px;  /*  上右下左 */
+		/* height:30%; */
 	}
 	.content .content-right .text {
 		background: #fdacf9;
-		height: 29%;
+		width:80%;
+		margin:10px auto;
+		/* height: 29%; */
 	}
 
 	.content .content-left .panel {
 		background: #e4ec95;
-		height: 95%;
+		padding: 20px 0px 20px 0px;   /*上右下左*/
+		/* height: 95%; */
 	}
+	.content .content-left .panel .button {
+		padding: 5px;
+	}
+	.content .content-left .weather {
+		/* position:absolute; */
+		/* position:absolute;
+		bottom: 5px, auto; */
+		padding: 20px 0px 0px 0px;   /*上右下左*/
+		/* height: -170px; */
+		background: #fafafa;
+	}
+
 	.content .content-middle .timestamp-middle {
 		background: #89dcf5;
 		height: 85%;
