@@ -65,7 +65,7 @@
 				</div>
 			</div>
 			<div class="content-right">
-				<div class="userinfo box">
+				<div class="box">
 					<UserInfo></UserInfo>
 				</div>
 				<div class="tag box">
@@ -176,12 +176,6 @@ export default {
 		margin:10px auto;
 	}
 
-	.content .content-right .userinfo {
-		padding: 5px;  /*  上右下左 */
-		background: #fafdfa;
-		height:160px;
-		/* width: 200px; */
-	}
 	.content .content-right .tag {
 		height:200px;
 		/* width: 200px; */

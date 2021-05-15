@@ -1,6 +1,7 @@
 <template>
   <div class="demo-basic--circle">
-    <div class="block"><el-avatar :size="50" :src="circleUrl"></el-avatar></div>
+    <!-- <div class="block"><el-avatar :size="50" :src="circleUrl"></el-avatar></div> -->
+    <el-avatar :size="50" :src="circleUrl"></el-avatar>
       <div class="sub-title">circle</div>
       <el-divider content-position="center">相信我, 你并不孤独!</el-divider>
       <div class="iconfont-ul">
@@ -44,6 +45,14 @@ import "../../public/css/iconfont/iconfont"
 </script>
 
 <style>
+.demo-basic--circle {
+  padding: 5px;  /*  上右下左 */
+  background: #fafdfa;
+  height:160px;
+  text-align: center;
+  margin:10px auto;
+  /* width: 200px; */
+}
 .iconfont-ul {
   padding: 10px 5px 10px 5px;
 }
