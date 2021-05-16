@@ -1,14 +1,15 @@
 <template> 
-    <div id="tagscloud">
-        <a href="http://sc.chinaz.com/" class="tagc1">js特效代码</a>
-        <a href="http://sc.chinaz.com/" class="tagc2">js特效代码</a>
-        <a href="http://sc.chinaz.com/" class="tagc5">js特效代码</a>
-        <a href="http://sc.chinaz.com/" class="tagc1">js特效代码</a>
-        <a href="http://sc.chinaz.com/" class="tagc5">js特效代码</a>
-        <a href="http://sc.chinaz.com/" class="tagc2">js特效代码</a>
-        <a href="http://sc.chinaz.com/" class="tagc2">js特效代码</a>
+  <div id="tagscloud">
+  <!-- <div> -->
+    <a href="http://sc.chinaz.com/" class="tagc1">js特效代码</a>
+    <a href="http://sc.chinaz.com/" class="tagc2">js特效代码</a>
+    <a href="http://sc.chinaz.com/" class="tagc5">js特效代码</a>
+    <a href="http://sc.chinaz.com/" class="tagc1">js特效代码</a>
+    <a href="http://sc.chinaz.com/" class="tagc5">js特效代码</a>
+    <a href="http://sc.chinaz.com/" class="tagc2">js特效代码</a>
+    <a href="http://sc.chinaz.com/" class="tagc2">js特效代码</a>
 
-    </div>
+  </div>
 </template>
 
 <script>

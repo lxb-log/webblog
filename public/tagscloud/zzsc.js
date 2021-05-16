@@ -1,10 +1,13 @@
-﻿
+﻿/* eslint-disable */
+
+// Disables all rules for the rest of the file 
+
 var radius = 90;
 var d = 200;
 var dtr = Math.PI / 180;
-var mcList = [];
-var lasta = 1;
-var lastb = 1;
+var mcList = []; // eslint-disable-line no-unused-vars
+var lasta = 1; // eslint-disable-line no-unused-vars
+var lastb = 1; // eslint-disable-line no-unused-vars
 var distr = true;
 var tspeed = 11;
 var size = 200;
@@ -18,41 +21,44 @@ window.onload=function ()
 	var i=0;
 	var oTag=null;
 	oDiv=document.getElementById('tagscloud');
-	aA=oDiv.getElementsByTagName('a');
-	for(i=0;i<aA.length;i++)
-	{
-		oTag={};		
-		aA[i].onmouseover = (function (obj) {
-			return function () {
-				obj.on = true;
-				this.style.zIndex = 9999;
-				this.style.color = '#fff';
-				this.style.padding = '5px 5px';
-				this.style.filter = "alpha(opacity=100)";
-				this.style.opacity = 1;
-			}
-		})(oTag)
-		aA[i].onmouseout = (function (obj) {
-			return function () {
-				obj.on = false;
-				this.style.zIndex = obj.zIndex;
-				this.style.color = '#fff';
-				this.style.padding = '5px';
-				this.style.filter = "alpha(opacity=" + 100 * obj.alpha + ")";
-				this.style.opacity = obj.alpha;
-				this.style.zIndex = obj.zIndex;
-			}
-		})(oTag)
-		oTag.offsetWidth = aA[i].offsetWidth;
-		oTag.offsetHeight = aA[i].offsetHeight;
-		mcList.push(oTag);
-	}
-	sineCosine( 0,0,0 );
-	positionAll();
-	(function () {
-            update();
-            setTimeout(arguments.callee, 40);
-        })();
+    if (oDiv) {
+        aA=oDiv.getElementsByTagName('a');
+        for(i=0;i<aA.length;i++)
+        {
+            oTag={};		
+            aA[i].onmouseover = (function (obj) {
+                return function () {
+                    obj.on = true;
+                    this.style.zIndex = 9999;
+                    this.style.color = '#fff';
+                    this.style.padding = '5px 5px';
+                    this.style.filter = "alpha(opacity=100)";
+                    this.style.opacity = 1;
+                }
+            })(oTag)
+            aA[i].onmouseout = (function (obj) {
+                return function () {
+                    obj.on = false;
+                    this.style.zIndex = obj.zIndex;
+                    this.style.color = '#fff';
+                    this.style.padding = '5px';
+                    this.style.filter = "alpha(opacity=" + 100 * obj.alpha + ")";
+                    this.style.opacity = obj.alpha;
+                    this.style.zIndex = obj.zIndex;
+                }
+            })(oTag)
+            oTag.offsetWidth = aA[i].offsetWidth;
+            oTag.offsetHeight = aA[i].offsetHeight;
+            mcList.push(oTag);
+        }
+        sineCosine( 0,0,0 );
+        positionAll();
+        (function () {
+                update();
+                setTimeout(arguments.callee, 40);
+            })();
+    }
+	
 };
 function update()
 {

@@ -1,28 +1,12 @@
-/* 
- * background.js - simple abstract background generator
- *
- * Changes:
- *  21-Jan-2016
- *   > Cap frames to 10 on mobile to prevent scroll lag
- *  20-Jan-2016
- *   + Added more versatile mobile options
- *   > Using tabs and 80 width
- *   > Settings object instead of lotsa variables
- *   > Bokeh jitter now assumes inverted min/max, added x/y options instead
- *   - Removed previous change of rounding values, for better looks
- *   - Removed gradient jitter, not useful
- *  6-Jan-2016
- *   > Stored PI * 2 in var for better framerate on mobile
- *   > Drawing circles to off-screen canvas only once, reducing .arc() ops
- *   + Added mobile detection
- *   + In-depth mobile+debug options
- *
- * @author  pbondoer - http://bondoer.fr/
- * @license CC0 - https://creativecommons.org/publicdomain/zero/1.0/
- */
+/* eslint-disable */
+
+// Disables all rules for the rest of the file 
 
 window.addEventListener("load", function() {
-	var ctx = document.getElementById('background').getContext('2d');
+	var ctxbb = document.getElementById('background')
+	if (ctxbb) {
+		var ctx = ctxbb.getContext('2d');
+			
 	//gradient
 	var options =
 	{
@@ -387,4 +371,6 @@ window.addEventListener("load", function() {
 	//init and render :)
 	init();
 	render();
+	}
+
 });

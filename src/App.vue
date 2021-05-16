@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <!-- 气泡背景 -->
-    <canvas id="background"></canvas>
+    
     <!-- 路由容器 router-view  (插槽) -->
     <router-view></router-view>
     
@@ -35,10 +34,5 @@ export default {
 		margin: 0;
 		padding: 0;
 	}
-	#background {
-		position: fixed;
-		top: 0;
-		left: 0;
-		z-index: -100;
-	}
+
 </style>

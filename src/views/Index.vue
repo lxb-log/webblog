@@ -1,5 +1,8 @@
 <template>
-<!-- <div style="opacity: 0.44;"> -->
+
+<div style="width: 100%; height:100%">
+	<!-- 气泡背景 -->
+    <canvas id="background"></canvas>
 	<div class="container">
 		<div class="banner">
 			<el-carousel :interval="4000" type="card" height="200px">
@@ -77,10 +80,11 @@
 			</div>
 		</div>
 	</div>
-<!-- </div> -->
+</div>
 </template>
 
 <script>
+import "../../public/background/bubble/background"
 import UserInfo from "../components/UserInfo"
 import TagsCloud from "../components/TagsCloud"
 import Weather from "../components/Weather"
@@ -94,7 +98,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   #background {
 	position: fixed;
 	top: 0;

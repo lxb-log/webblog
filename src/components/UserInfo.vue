@@ -44,7 +44,7 @@ import "../../public/css/iconfont/iconfont"
   }
 </script>
 
-<style>
+<style s>
 .demo-basic--circle {
   padding: 5px;  /*  上右下左 */
   background: #fafdfa;
