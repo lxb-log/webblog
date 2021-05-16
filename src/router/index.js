@@ -5,6 +5,7 @@ import AdminHome from '../adminviews/AdminHome.vue'
 import ArticleList from '../adminviews/ArticleList.vue'
 import TagsList from '../adminviews/TagsList.vue'
 import Category from '../adminviews/Category.vue'
+import AdminEditor from '../adminviews/AdminEditor.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
         path: '/admin/category',
         name: 'category',
         component: Category
+      },
+      {
+        path: '/admin/editor',
+        name: 'editor',
+        component: AdminEditor
       },
     ]
   }
