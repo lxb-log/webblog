@@ -1,6 +1,6 @@
 <template>
 <div >
-  <el-table :data="tableData">
+  <el-table :data="tableData" stripe>
     <el-table-column prop="date" label="创建日期" width="140">
     </el-table-column>
     <el-table-column prop="name" label="标签名称" width="120">

@@ -1,15 +1,20 @@
 <template>
 <div >
-  <el-table :data="tableData">
+  <el-table :data="tableData" stripe>
     <el-table-column prop="date" label="创建日期" width="140">
     </el-table-column>
-    <el-table-column prop="name" label="分类名称" width="120">
+    <el-table-column prop="name" label="分类名称" width="120" align="name">
+      <template slot-scope="scope">
+        <el-tag
+          :type="scope.row.tag === '家' ? 'primary' : 'success'"
+          disable-transitions>{{scope.row.name}}</el-tag>
+      </template>
     </el-table-column>
     <el-table-column prop="address" label="文章数量" width="120">
     </el-table-column>
     <el-table-column
       width="140"
-      align="righ`t">
+      align="right">
       <!-- 这里忽略这个报错 -->
       <!-- eslint-disable-next-line -->
       <template slot="header" slot-scope="scope" >

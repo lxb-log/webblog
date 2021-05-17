@@ -1,10 +1,10 @@
 <template>
   <div style="width: 100%;">
     <div class="input-box">
-      <el-input placeholder="请输入内容" v-model="input3" class="input-with-select">
+      <el-input placeholder="请输入内容" v-model="title" class="input-with-select">
       </el-input>
-      <el-button type="info" round>保存草稿</el-button>
-      <el-button type="primary" round>发布文章</el-button>
+      <el-button type="info" round @click="handleSave">保存草稿</el-button>
+      <el-button type="primary" round @click="handleRelease">发布文章</el-button>
     </div>
     
     <div id="editorSection"></div>
@@ -32,12 +32,12 @@ export default {
   },
   data() {
     return {
-      text: "aaa",
-      input3: '',
-      select: ''
+      text: "",
+      title: "", // null为假, 空数组[]和空对象{}都是真, null 是为了语境
     };
   },
   mounted() {
+    
     hljs.highlightAll();
     hljs.initHighlightingOnLoad();
     // eslint-disable-next-line
@@ -66,7 +66,6 @@ export default {
             headers: {
               "Content-Type": "text/json;charset=UTF-8",
               "Access-Control-Allow-Origin": "https://www.riyugo.com",
-              //   'origin': 'https://www.riyugo.com'
             },
           };
           forms.append("file", file);
@@ -83,14 +82,21 @@ export default {
     delete this.tuieditor;
   },
   methods: {
-    get_md_html() {
-      console.log("AAAAAAAAAAAAAA", this.tuieditor.getHtml());
+    // 保存草稿
+    handleSave () {
+      console.log("保存草稿---")
+      console.log(this.tuieditor.getHtml())
+      console.log('text: ', this.text)
+      var forms = new FormData();
+      forms.append("text", this.text);
+      forms.append("title", this.title);
+      axios.post("/file.php", forms).then((res) => {
+        console.log(res.data);
+      });
     },
-    initialize() {
-      if (this.$el) {
-        this.value = this.tuieditor.getHtml();
-        console.log("9798797979", this.tuieditor.getHtml());
-      }
+    // 发布文章
+    handleRelease () {
+      console.log("发布文章---")
     },
   },
   watch: {
@@ -107,21 +113,19 @@ export default {
 </script>
 
 <style>
-#editorSection {
-  width: 100%;
-  background: cornsilk;
-  /* height: 100px; */
-}
-</style>
-<style>
+  #editorSection {
+    width: 100%;
+    background: cornsilk;
+    /* height: 100px; */
+  }
   .el-input .el-input__inner {
     border-radius: 30px;
   }
 
   .input-box {
     display: flex;
-    /* background-color: rgb(189, 186, 186); */
-    margin: 8px 16px 8px 8px;
+    /* background-image: linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%); */
+    padding: 8px 16px 8px 8px;
   }
 
 </style>

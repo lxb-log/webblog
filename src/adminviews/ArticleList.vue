@@ -9,15 +9,26 @@
     </el-table-column>
     <el-table-column prop="address" label="文章标签" width="120">
     </el-table-column>
+    <el-table-column prop="type" width="130">
+      <!-- 这里忽略这个报错 -->
+      <!-- eslint-disable-next-line -->
+      <template slot="header" slot-scope="scope" >
+          <el-select v-model="select" slot="prepend" placeholder="全部状态">
+            <el-option label="已发布" value="1"></el-option>
+            <el-option label="草稿箱" value="2"></el-option>
+          </el-select>
+      </template>
+
+    </el-table-column>
     <el-table-column
-      width="140"
+      width="150"
       align="righ`t">
       <!-- 这里忽略这个报错 -->
       <!-- eslint-disable-next-line -->
       <template slot="header" slot-scope="scope" >
         <el-input
           v-model="search"
-          size="mini"
+          size="medium "
           placeholder="输入关键字搜索"/>
       </template>
       <template slot-scope="scope">
@@ -47,7 +58,8 @@
       };
       return {
         tableData: Array(20).fill(item),
-        search: ''
+        search: '',
+        select: ''
       }
     },
     name: 'Category',
