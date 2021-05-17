@@ -1,5 +1,15 @@
 <template>
-  <div id="editorSection"></div>
+  <div style="width: 100%;">
+    <div class="input-box">
+      <el-input placeholder="请输入内容" v-model="input3" class="input-with-select">
+      </el-input>
+      <el-button type="info" round>保存草稿</el-button>
+      <el-button type="primary" round>发布文章</el-button>
+    </div>
+    
+    <div id="editorSection"></div>
+  </div>
+
 </template>
 
 <script>
@@ -7,9 +17,12 @@ import axios from "axios";
 import "codemirror/lib/codemirror.css"; // Editor's Dependency Style
 import "@toast-ui/editor/dist/toastui-editor.css"; // Editor's Style
 import Editor from "@toast-ui/editor";
-// import 'highlight.js/styles/github.css'
-// import codeSyntaxHightlight from '@toast-ui/editor-plugin-code-syntax-highlight'
-// import hljs from 'highlight.js'
+import hljs from "highlight.js";
+import "../../public/highlight/monokai-sublime.css"
+import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight'
+import colorSyntax from '@toast-ui/editor-plugin-color-syntax'
+import 'tui-color-picker/dist/tui-color-picker.css';
+import '@toast-ui/editor/dist/i18n/zh-cn.js';
 
 export default {
   name: "AdminEditor",
@@ -20,16 +33,28 @@ export default {
   data() {
     return {
       text: "aaa",
+      input3: '',
+      select: ''
     };
   },
   mounted() {
+    hljs.highlightAll();
+    hljs.initHighlightingOnLoad();
+    // eslint-disable-next-line
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre').forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+
     this.tuieditor = new Editor({
       el: document.querySelector("#editorSection"),
       initialEditType: "markdown",
       previewStyle: "vertical",
+      language:'zh-CN',
       initialValue: this.text,
-      height: "calc(100% - 2px)",
-
+      height: "calc(100% - 58px)",
+      plugins: [colorSyntax, [codeSyntaxHighlight, { hljs }]],
       hooks: {
         previewBeforeHook(p) {
           console.log("------", p);
@@ -87,4 +112,16 @@ export default {
   background: cornsilk;
   /* height: 100px; */
 }
+</style>
+<style>
+  .el-input .el-input__inner {
+    border-radius: 30px;
+  }
+
+  .input-box {
+    display: flex;
+    /* background-color: rgb(189, 186, 186); */
+    margin: 8px 16px 8px 8px;
+  }
+
 </style>
