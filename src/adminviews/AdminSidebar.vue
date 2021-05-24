@@ -93,7 +93,7 @@ export default {
 .admin-main {
   width: 100%;
   height: calc(100% - 60px);
-  background: rgb(109, 222, 236);
+  background: rgb(3, 3, 3);
   /* text-align: center; */
   /* margin: 0 auto; */
   justify-content: center;

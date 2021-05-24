@@ -8,7 +8,12 @@ module.exports = {
         '/fil': { // 只要是以 '/ajax' 开头的ajax请求都会自动加上 target 属性值
           target: 'https://www.riyugo.com',
           changeOrigin: true
-        }
+        },
+        '/server': { // 只要是以 '/ajax' 开头的ajax请求都会自动加上 target 属性值
+          target: 'http://127.0.0.1:8000',
+          changeOrigin: true
+        },
+
       }
     }
   }

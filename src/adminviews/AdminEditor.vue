@@ -33,7 +33,7 @@ export default {
   data() {
     return {
       text: "",
-      title: "", // null为假, 空数组[]和空对象{}都是真, null 是为了语境
+      title: "1111", // null为假, 空数组[]和空对象{}都是真, null 是为了语境
     };
   },
   mounted() {

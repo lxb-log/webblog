@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+<script>
+
+	var str = `<p>文本1151515</p>	<title>Document</title>	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+
+
+  console.log("str_old: ",str)
+	// var str1 = str.replace(/<[^>]+>|&[^>]+;/g,"").trim()
+	var str1 = str.replace(/<[^<>]+>/g, "").replace(/&nbsp;/gi, "")
+	console.log("str_new: ",str1)
+
+</script>
+	
+</body>
+</html>
+
