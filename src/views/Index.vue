@@ -14,7 +14,11 @@
 		<div class="content">
 			<div class="content-left">
 				<div class="panel box">
-					<div class="button"><el-button type="primary">文章</el-button></div>
+					<div class="button">
+						<el-button type="primary">
+							<router-link to="/readeditor" tag="span" active-class="Highlight">文章</router-link>
+						</el-button>
+					</div>
 					<div class="button"><el-button type="primary">分类</el-button></div>
 					<div class="button"><el-button type="primary" icon="el-icon-search">搜索</el-button></div>
 				</div>

@@ -6,6 +6,7 @@ import ArticleList from '../adminviews/ArticleList.vue'
 import TagsList from '../adminviews/TagsList.vue'
 import Category from '../adminviews/Category.vue'
 import AdminEditor from '../adminviews/AdminEditor.vue'
+import ReadEditor from '../components/readEditor.vue'
 
 Vue.use(VueRouter)
 
@@ -14,6 +15,11 @@ const routes = [
     path: '/',
     name: 'index',
     component: Index
+  },
+  {
+    path: '/readeditor',
+    name: 'readEditor',
+    component: ReadEditor
   },
   {
     path: '/admin',
