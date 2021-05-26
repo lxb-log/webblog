@@ -51,7 +51,7 @@ import "../../public/css/iconfont/iconfont"
   height:160px;
   text-align: center;
   margin:10px auto;
-  /* width: 200px; */
+  min-width: 200px;
 }
 .iconfont-ul {
   padding: 10px 5px 10px 5px;
