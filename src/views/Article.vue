@@ -1,6 +1,12 @@
 
 <template>
 	<div class="article-main">
+		<div style="background-color:#545c64;">
+			<div class="article-navbar" style="">
+				<Navbar></Navbar>
+			</div>
+		</div>
+
 		<div class="article">
 			<div class="main">
 				<router-view></router-view>
@@ -10,7 +16,7 @@
 					<UserInfo></UserInfo>
 				</div>
 				<div>
-					222
+					<TagsCloud></TagsCloud>
 				</div>
 			</div>
 		</div>
@@ -20,9 +26,13 @@
 
 <script>
 import UserInfo from "../components/UserInfo"
+import TagsCloud from "../components/TagsCloud"
+import Navbar from "../components/Navbar"
 export default {
   components: {
-    UserInfo
+    UserInfo,
+		TagsCloud,
+		Navbar
   },
 	methods: {
 		goBack() {
@@ -47,7 +57,14 @@ export default {
 	max-width: 1400px;
 	min-width: 1050px;
 	width: 75%;
-	height: 100%;
+	height: calc(100% - 50px);
+}
+
+.article-navbar {
+	margin:0 auto;
+	max-width: 1400px;
+	min-width: 1050px;
+	width: 75%;
 }
 
 .container{
@@ -80,7 +97,7 @@ export default {
 	display: flex;
 	padding: 0 0 0 10px;
 	width: 100%;
-	background-color: #FFDEE9;
+	/* background-color: #FFDEE9; */
 	background-image: linear-gradient(239deg, #FFDEE9 0%, #B5FFFC 100%);
 }
 
@@ -93,7 +110,7 @@ export default {
 
 <style scoped>
 .main{
-	background: rgb(181, 233, 213);
+	background: rgb(252, 252, 252);
 }
 </style>
 

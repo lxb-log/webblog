@@ -3,12 +3,12 @@
 	<div class="article-list-main">
 		<div class="article-list">
 			<ul>
-				<li v-for="a in num" class="one-article" :key="a">
+				<li v-for="article in articles" class="one-article" :key="article.articleID">
 					<div class="one-article-box">
-						<span><a>文章标题文章标题文章标题文章标题</a></span>
-
-						<p>11文章标题文章标题文章标题文章标题文章标题文章标题文章标题文章标题文章标题文章标题文章标题文章标题文章标题文章标题文章标题文章标题文章标题文章标题文章标题文章标题文章标题文章标题文章标题文章标题</p>
-						<div class="info-box">2021-05-26</div>
+						<!-- <span><a :href=" '/article/detail?id=' + article.articleID" >{{ article.title }}</a></span> -->
+						<span><a @click="handleClick(article.articleID)" >{{ article.title }}</a></span>
+						<p>{{ article.desc }}</p>
+						<div class="info-box">{{ article.created_time }}</div>
 					</div>
 				</li>
 			</ul>
@@ -20,12 +20,13 @@
 <style>
 .article-list-main {
 	height: 100%;
-	background: cornsilk;
+	/* background: cornsilk; */
 	overflow: auto; 
 	/* padding: 0 50px 0 50px; */
 	/* margin:0 auto; */
 	
 }
+
 
 /*-------滚动条整体样式----*/
 .main	.article-list-main::-webkit-scrollbar {
@@ -92,6 +93,8 @@ span  a {
 
 .one-article .one-article-box {
 	/* height: 100px; */
+	
+	border-radius: 10px;
 	position: relative;
 	top: 10px;
 	margin: 0 0 10px 0;
@@ -106,11 +109,24 @@ span  a {
 
 </style>
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
-      num: [1, 2, 3, 4, 5, 6, 7, 9, 8]
+      articles: []
     }
-  }
+  },
+	mounted () {
+    axios.get("/blog/article/").then(res => {
+			console.log('---', res.data.data)
+      this.articles = res.data.data
+    })
+  },
+	methods: {
+		handleClick (id) {
+			this.$router.push(`/article/detail?id=${id}`)
+		}
+	}
 }
 </script>

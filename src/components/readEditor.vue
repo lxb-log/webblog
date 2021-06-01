@@ -15,14 +15,9 @@ export default {
     content: String,
     value: String,
   },
-  data() {
-    return {
-      text: "",
-      title: "1111", // null为假, 空数组[]和空对象{}都是真, null 是为了语境
-    };
-  },
+
   mounted() {
-    
+    // console.log("收到父传子属性", this.content)
     hljs.highlightAll();
     hljs.initHighlightingOnLoad();
     // eslint-disable-next-line
@@ -34,7 +29,7 @@ export default {
 		this.viewer = new Viewer({
 			el: document.querySelector('#viewer'),
 			plugins: [[codeSyntaxHighlight, { hljs }]],
-			initialValue: '\n # hello \n \n \n \n ```python \n def func(x): \n    a=111 \n \n ``` \n # 111'
+			initialValue: this.content
 		})
   },
 
@@ -44,7 +39,7 @@ export default {
 <style>
 
 #viewer {
-  background: rgb(181, 233, 213);
+  /* background: rgb(181, 233, 213); */
   min-width: 800px;
   padding: 30px;
 }
