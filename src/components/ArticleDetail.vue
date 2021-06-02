@@ -1,6 +1,6 @@
 
 <template>
-	<div v-if="article">
+	<div v-if="article" class="view-article">
 		<div class="title-box">
 			{{ article.title }}
 		</div>
@@ -30,7 +30,7 @@ export default {
 	},
 	mounted () { // 在详情的组件中利用mounted生命周期获取传过来的数据
 		console.log('利用获取的id, 发送ajax请求数据', this.$route) // this.$route内包含整router对象
-		axios.get(`/blog/article/${this.$route.query.id}`).then(res => {
+		axios.get(`/blog/article/${this.$route.query.id}/`).then(res => {
 			console.log('---', res.data.data)
 			this.article = res.data.data
 		})

@@ -6,7 +6,7 @@ module.exports = {
     devServer: {
       proxy: {
         '/fil': { // 只要是以 '/ajax' 开头的ajax请求都会自动加上 target 属性值
-          target: 'https://www.riyugo.com',
+          target: 'https://cdnir.com',
           changeOrigin: true
         },
         '/server': { // 只要是以 '/ajax' 开头的ajax请求都会自动加上 target 属性值

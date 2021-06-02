@@ -23,21 +23,32 @@ import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight'
 import colorSyntax from '@toast-ui/editor-plugin-color-syntax'
 import 'tui-color-picker/dist/tui-color-picker.css';
 import '@toast-ui/editor/dist/i18n/zh-cn.js';
-
 export default {
   name: "AdminEditor",
-  props: {
-    content: String,
-    value: String,
-  },
+
   data() {
     return {
-      text: "",
-      title: "1111", // null为假, 空数组[]和空对象{}都是真, null 是为了语境
+      article: null,
+      title: "",
+      content: ""
     };
   },
+
   mounted() {
-    
+    if (this.$route.query.id) {
+      axios.get(`/server/article/${this.$route.query.id}/`).then(res => {
+        // console.log(res.data)
+        this.article = res.data
+        this.title = this.article.title
+        this.content = this.article.content
+        // insertText() 方法是插入编辑器文本
+        this.tuieditor.insertText(this.content)
+      })
+    } else {
+      this.title = ""
+      this.content = ""
+    } 
+
     hljs.highlightAll();
     hljs.initHighlightingOnLoad();
     // eslint-disable-next-line
@@ -52,7 +63,7 @@ export default {
       initialEditType: "markdown",
       previewStyle: "vertical",
       language:'zh-CN',
-      initialValue: this.text,
+      initialValue: this.content,
       height: "calc(100% - 58px)",
       plugins: [colorSyntax, [codeSyntaxHighlight, { hljs }]],
       hooks: {
@@ -65,7 +76,7 @@ export default {
           var configs = {
             headers: {
               "Content-Type": "text/json;charset=UTF-8",
-              "Access-Control-Allow-Origin": "https://www.riyugo.com",
+              "Access-Control-Allow-Origin": "https://cdnir.com",
             },
           };
           forms.append("file", file);
@@ -85,30 +96,57 @@ export default {
     // 保存草稿
     handleSave () {
       console.log("保存草稿---")
-      console.log(this.tuieditor.getHtml())
-      console.log('text: ', this.text)
-      var forms = new FormData();
-      forms.append("text", this.text);
-      forms.append("title", this.title);
-      axios.post("/file.php", forms).then((res) => {
-        console.log(res.data);
-      });
+      // getMarkdown() 为md格式的文本
+      // console.log("getMarkdown()", this.tuieditor.getMarkdown())
+      var articleData=JSON.stringify({
+          // content: this.tuieditor.getHtml(),
+          content: this.tuieditor.getMarkdown(),
+          title: this.title
+      })
+      var configs = {
+        headers: {
+          "Content-Type": "application/json;charset=UTF-8"
+        },
+      };
+      // 如果article存在,则表示为修改文章信息
+      if (this.article) {
+        axios.put(`/server/article/${this.article.id}/`, articleData, configs).then((res) => {
+          console.log(res.data);
+        });
+      } else {
+        axios.post("/server/article/", articleData, configs).then((res) => {
+          console.log(res.data);
+        });
+      }
+
     },
     // 发布文章
     handleRelease () {
       console.log("发布文章---")
+      var articleData=JSON.stringify({
+        // content: this.tuieditor.getHtml(),
+        content: this.tuieditor.getMarkdown(),
+        title: this.title,
+        status: 1
+      })
+      var configs = {
+        headers: {
+          "Content-Type": "application/json;charset=UTF-8"
+        },
+      };
+      // 如果article存在,则表示为修改文章信息
+      if (this.article) {
+        axios.put(`/server/article/${this.article.id}/`, articleData, configs).then((res) => {
+          console.log(res.data);
+        });
+      } else {
+        axios.post("/server/article/", articleData, configs).then((res) => {
+          console.log(res.data);
+        });
+      }
     },
   },
-  watch: {
-    text: {
-      handler(value, oldValue) {
-        console.log("新---", value);
-        console.log("旧---", oldValue);
-      },
-      deep: true,
-      immediate: true,
-    },
-  },
+
 };
 </script>
 
@@ -127,5 +165,42 @@ export default {
     /* background-image: linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%); */
     padding: 8px 16px 8px 8px;
   }
+
+</style>
+
+<style>
+.tui-editor-defaultUI .te-mode-switch {
+    display: none;
+}
+
+.te-md-container .CodeMirror {
+    font-size: 20px;
+    height: inherit;
+}
+
+.CodeMirror-vscrollbar::-webkit-scrollbar {
+	width:8px;
+	height:8px;
+}
+
+
+*::-webkit-scrollbar {
+	width:8px;
+	height:8px;
+}
+/*滚动条里面小方块样式*/
+*::-webkit-scrollbar-thumb {
+	border-radius:100px;
+	/* background-clip: text; */
+	/* -webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2); */
+	
+	background:rgb(158, 160, 163);
+}
+/*滚动条里面轨道样式*/
+*::-webkit-scrollbar-track {
+	/* -webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2); */
+	border-radius:0;
+	background:rgba(255, 97, 97, 0.1);
+}
 
 </style>

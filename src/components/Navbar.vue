@@ -31,7 +31,7 @@
   }
 </script>
 
-<style>
+<style scoped>
 .router-link-exact-active {
   /* color: #ffd04b; */
 	background: rgb(64, 158, 255);

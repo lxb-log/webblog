@@ -13,7 +13,7 @@
     </el-table-column>
     <el-table-column label="文章分类" width="120">
       <template slot-scope="scope">
-        <el-tag effect="plain" disable-transitions>{{scope.row.category.name}}</el-tag>
+        <el-tag effect="plain" v-if="scope.row.category" disable-transitions>{{scope.row.category.name}}</el-tag>
       </template>
     </el-table-column>
     <el-table-column label="文章标签" width="120">
@@ -57,11 +57,11 @@
       <template slot-scope="scope">
         <el-button
           size="mini"
-          @click="handleEdit(scope.$index, scope.row)"><i class="el-icon-edit"></i></el-button>
+          @click="handleEdit(scope.$index, scope.row.id)"><i class="el-icon-edit"></i></el-button>
         <el-button
           size="mini"
           type="danger"
-          @click="handleDelete(scope.$index, scope.row)"><i class="el-icon-delete"></i></el-button>
+          @click="handleDelete(scope.$index, scope.row.id)"><i class="el-icon-delete"></i></el-button>
       </template>
     </el-table-column>`
   </el-table>
@@ -92,8 +92,15 @@ import axios from "axios";
     },
     name: 'Category',
     methods: {
-      handleEdit(index, row) {
-        console.log(index, row);
+      handleEdit(index, id) {
+        
+        this.$router.push(`/admin/editor?id=${id}`)
+        // axios.get(`/server/article/${id}/`).then(res => {
+        //   // this.article = res.data.data
+        //   console.log('555', res.data)
+        //   this.$router.push(`/admin/editor?article=${res.data}`)
+        // })
+        
       },
       handleDelete(index, row) {
         console.log(index, row);

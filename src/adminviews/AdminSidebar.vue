@@ -2,38 +2,27 @@
   <div class="adminsidebar">
     <div class="admin-left">
       <UserInfo></UserInfo>
-      <el-menu>
-        <el-menu-item index="1">
-          <router-link to="/admin/articles" tag="li" active-class="Highlight">
-            <i class="el-icon-menu"></i><span>文章管理</span>
-          </router-link>
-        </el-menu-item>
-        <el-menu-item index="2">
-          <router-link to="/admin/category" tag="li" active-class="Highlight">
-            <i class="el-icon-menu"></i><span>分类管理</span>
-          </router-link>
-        </el-menu-item>
-        <el-menu-item index="3">
-          <router-link to="/admin/tags" tag="li" active-class="Highlight">
-            <i class="el-icon-menu"></i><span>标签管理</span>
-          </router-link>
-        </el-menu-item>
-        <el-menu-item index="4">
-          <router-link to="/admin/editor" tag="li" active-class="Highlight">
-            <i class="el-icon-menu"></i><span>写文章</span>
-          </router-link>
-        </el-menu-item>
-      </el-menu>
+      <ul class="adminsidebar-main">
+        <li><router-link to="/admin/articles" tag="a" active-class="Highlight">
+          <i class="el-icon-menu"></i><span>文章管理</span>
+        </router-link></li>
+        <li><router-link to="/admin/category" tag="a" active-class="Highlight">
+          <i class="el-icon-menu"></i><span>分类管理</span>
+        </router-link></li>
+        <li><router-link to="/admin/tags" tag="a" active-class="Highlight">
+          <i class="el-icon-menu"></i><span>标签管理</span>
+        </router-link></li>
+        <li><router-link to="/admin/editor" tag="a" active-class="Highlight">
+          <i class="el-icon-menu"></i><span>写文章</span>
+        </router-link></li>
+      </ul>
     </div>
     <div class="admin-right">
       <el-header style="text-align: center; font-size: 30px">
         <span class="header-text">后台管理系统</span>
       </el-header>
       <div class="admin-main">
-        <!-- <div> -->
-        <!-- 111 -->
         <router-view></router-view>
-        <!-- </div> -->
       </div>
     </div>
   </div>
@@ -64,6 +53,20 @@ export default {
   display: flex;
   height: 100%;
 }
+
+.adminsidebar-main {
+  padding-left: 20%;
+  font-size: 22px;
+  line-height: 50px;
+  color: #000;
+}
+/* 改变鼠标移动到 a 标签时的颜色 */
+.adminsidebar-main a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+
 
 .admin-left {
   width: 250px;

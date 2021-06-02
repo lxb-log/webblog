@@ -54,7 +54,7 @@ export default {
 .article {
 	display: flex;
 	margin:0 auto;
-	max-width: 1400px;
+	max-width: 1300px;
 	min-width: 1050px;
 	width: 75%;
 	height: calc(100% - 50px);
@@ -62,7 +62,7 @@ export default {
 
 .article-navbar {
 	margin:0 auto;
-	max-width: 1400px;
+	max-width: 1300px;
 	min-width: 1050px;
 	width: 75%;
 }
@@ -75,6 +75,7 @@ export default {
 
 .main{
 	width: 80%;
+	overflow:auto;
 }
 
 .viewer-box {
@@ -115,5 +116,23 @@ export default {
 </style>
 
 <style>
-
+/*-------滚动条整体样式----*/
+.main::-webkit-scrollbar {
+	width:8px;
+	height:8px;
+}
+/*滚动条里面小方块样式*/
+.main::-webkit-scrollbar-thumb {
+	border-radius:100px;
+	/* background-clip: text; */
+	/* -webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2); */
+	
+	background:rgb(158, 160, 163);
+}
+/*滚动条里面轨道样式*/
+.main::-webkit-scrollbar-track {
+	/* -webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2); */
+	border-radius:0;
+	background:rgba(255, 97, 97, 0.1);
+}
 </style>
