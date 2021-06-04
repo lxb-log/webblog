@@ -35,4 +35,7 @@ export default {
 		padding: 0;
 	}
 
+#app .tui-editor-contents {
+    font-size: 20px;
+}
 </style>
